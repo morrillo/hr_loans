@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    <record model ="ir.ui.view" id="view_hr_loan_tree">
+        <field name="name">hr.loan.tree</field>
+        <field name="model">hr.loan</field>
+        <field name="arch" type="xml">
+		<tree string="Employee Loan" version="7.0">
+	              <field name="employee_id" />
+        	      <field name="loan_type" />
+		      <field name="loan_date" />
+		</tree>
+	</field>
+    </record>
+
+    <record model ="ir.ui.view" id="view_hr_loan_form">
+        <field name="name">hr.loan.form</field>
+        <field name="model">hr.loan</field>
+        <field name="arch" type="xml">
+		<form string="Employee Loan" version="7.0" col="4">
+		   <group>
+	              <field name="employee_id" />
+        	      <field name="loan_type" />
+		      <field name="loan_date" />
+		   </group>
+                   <div class="oe_clear">
+                           <field name="comment"/>
+                   </div>
+		</form>
+	</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_hr_loan">
+        <field name="name">Employee Loan</field>
+        <field name="res_model">hr.loan</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_hr_loan_tree" />
+        <!-- field name="search_view_id" ref="view_payment_retention_search" / -->
+    </record>
+
+    <menuitem name="Employee Loans" parent="hr.menu_hr_main" id="menu_hr_loan" action="action_hr_loan" 
+		sequence="7" />
+
+   </data>
+</openerp>
